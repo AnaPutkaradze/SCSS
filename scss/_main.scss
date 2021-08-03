@@ -1,0 +1,52 @@
+.section-bg {
+    background-color: $colorgrey;
+
+    .container {
+        @extend %size;
+        .title {
+            color: $colorwhite;
+            font-size: 30px;
+            font-family: $font01;
+            @media (max-width: 900px) {
+                color: aqua;
+            }
+            &::after {
+                content: '  ';
+                width: 40px;
+                height: 2px;
+                background-color: $colorwhite;
+                display: block;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                // margin: 10px 0;
+            }
+        }
+        .wrapper-box {
+            @include d-flex(flex, space-between, center);
+            @media (max-width: 1160px) {
+                @include d-flex(flex, center, flex-start);
+                align-items: center;
+            }
+            @media (max-width: 768px) {
+                flex-direction: column-reverse;
+            }
+            img {
+               @include width(500px, 100%);
+               @include hovertransition(all, 0.5s, linear);
+               &:hover {
+                filter: blur(2px);
+               }
+            }
+            p {
+                max-width: 300px;
+                width: 100%;
+                color: $colorwhite;
+                @include hovertransition(all, 0.5s, linear);
+                // font-family: $font01;
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+}
